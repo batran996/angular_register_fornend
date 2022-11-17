@@ -2,33 +2,15 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px">
-                <form class="form_center" #f="ngForm" (ngSubmit)="f.form.valid && register()" >
-                    <mat-error class="alert alert-primary ">{{status}}</mat-error>
-                    <!--                        //Name//-->
-                    <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Name</mat-label>
-                        <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required minlength="3" maxlength="50">
-                        <mat-icon color="primary" matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-error *ngIf="name.hasError('required')">Name is required !</mat-error>
-                        <mat-error *ngIf="name.hasError('minlength')">Name is have leas 3 characters !</mat-error>
-                    </mat-form-field>
-                    <br>
+                <form class="form_center" #f="ngForm" (ngSubmit)="f.form.valid && login()">
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <!--                        //UserName//-->
                     <mat-form-field style="width: 400px" appearance="outline">
                         <mat-label>UserName</mat-label>
                         <input name="username" #username="ngModel" [(ngModel)]="form.username" matInput placeholder="Username" required minlength="3" maxlength="50">
                         <mat-icon color="primary" matSuffix>account_circle</mat-icon>
                         <mat-error *ngIf="username.hasError('required')">Username is required !</mat-error>
-                        <mat-error *ngIf="name.hasError('minlength')">Username is have leas 3 characters !</mat-error>
-                    </mat-form-field>
-                    <br>
-                    <!--                        //Email//-->
-                    <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input name="email" [(ngModel)]="form.email" [formControl]="emailFormcontrol" matInput placeholder="Email" required minlength="3" maxlength="50">
-                        <mat-icon color="primary" matSuffix>alternate_email</mat-icon>
-                        <mat-error *ngIf="emailFormcontrol.hasError('required')">Email is required !</mat-error>
-                        <mat-error *ngIf="emailFormcontrol.hasError('email')">Email is valid ! EX:acbd@gmail.com</mat-error>
+                        <mat-error *ngIf="username.hasError('minlength')">Username is have leas 3 characters !</mat-error>
                     </mat-form-field>
                     <br>
                     <!--password -->
@@ -42,14 +24,13 @@
                         <mat-error *ngIf="password.hasError('minlength')"> Password is have leas 6 characters ! </mat-error>
                         <mat-error *ngIf="password.hasError('maxlength')"> Password is have leas 100 characters ! </mat-error>
                     </mat-form-field>
+
                     <br>
-                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Register
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Login
                         <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
                     </button>
                 </form>
             </mat-card>
-
         </div>
     </div>
 </div>
-
