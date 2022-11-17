@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <form class="form_register" #f="ngForm" (ngSubmit)="f.form.valid && register()" >
+                    <mat-error class="alert alert-primary ">{{status}}</mat-error>
+                    <!--                        //Name//-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input name="name" #name="ngModel" [(ngModel)]="form.name" matInput placeholder="Name" required minlength="3" maxlength="50">
+                        <mat-icon color="primary" matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="name.hasError('required')">Name is required !</mat-error>
+                        <mat-error *ngIf="name.hasError('minlength')">Name is have leas 3 characters !</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--                        //UserName//-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input name="username" #username="ngModel" [(ngModel)]="form.username" matInput placeholder="Username" required minlength="3" maxlength="50">
+                        <mat-icon color="primary" matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf="username.hasError('required')">Username is required !</mat-error>
+                        <mat-error *ngIf="name.hasError('minlength')">Username is have leas 3 characters !</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--                        //Email//-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input name="email" [(ngModel)]="form.email" [formControl]="emailFormcontrol" matInput placeholder="Email" required minlength="3" maxlength="50">
+                        <mat-icon color="primary" matSuffix>alternate_email</mat-icon>
+                        <mat-error *ngIf="emailFormcontrol.hasError('required')">Email is required !</mat-error>
+                        <mat-error *ngIf="emailFormcontrol.hasError('email')">Email is valid ! EX:acbd@gmail.com</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--password -->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input id="pass" name="password" [(ngModel)]="form.password" #password="ngModel" matInput [type]="hide ? 'password' : 'text'" minlength="6" maxlength="100" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.hasError('required')"> Password is required </mat-error>
+                        <mat-error *ngIf="password.hasError('minlength')"> Password is have leas 6 characters ! </mat-error>
+                        <mat-error *ngIf="password.hasError('maxlength')"> Password is have leas 100 characters ! </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <!--repeat password -->
+<!--                    <mat-form-field style="width: 400px" appearance="outline">-->
+<!--                        <mat-label>Repeat your password</mat-label>-->
+<!--                        <p id="err"></p>-->
+<!--                        <input  id="repeat_pass" name="password" [(ngModel)]="form.password" #password="ngModel" matInput [type]="hide ? 'password' : 'text'" required>-->
+<!--                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">-->
+<!--                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+<!--                        </button>-->
+<!--                        <mat-error *ngIf="password.hasError('required')"> Password is required </mat-error>-->
+<!--                        <mat-error *ngIf="password.hasError('minlength')"> Password is have leas 6 characters ! </mat-error>-->
+<!--                        <mat-error *ngIf="password.hasError('maxlength')"> Password is have leas 100 characters ! </mat-error>-->
+<!--                    </mat-form-field>-->
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Register
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </form>
+            </mat-card>
+
+        </div>
+    </div>
+</div>
+<!--<script>-->
+<!--    function check() {-->
+<!--        let pass = document.getElementById("pass").value;-->
+<!--        let repass = document.getElementById("repeat_pass").value;-->
+<!--        if (pass !== repass){-->
+<!--            document.getElementById("err").innerHTML = "repeat pass is valid";-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
