@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {AuthService} from '../../service/auth.service';
 import {SignUpForm} from '../../model/SignUpForm';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,9 +17,10 @@ export class RegisterComponent implements OnInit {
   ]);
   hide = true;
   signUpForm: SignUpForm;
-  status = "Please fill in the form create account !";
+  status = 'Please fill in the form create account !';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -31,23 +33,26 @@ export class RegisterComponent implements OnInit {
       this.form.email,
       this.form.password
     );
-    this.authService.signUp(this.signUpForm).subscribe(data=>{
-      console.log('data--------',data);
-      if (data.message === "nouser"){
-        this.status = "Username existed please try again !";
+    this.authService.signUp(this.signUpForm).subscribe(data => {
+      console.log('data--------', data);
+      if (data.message === 'nouser') {
+        this.status = 'Username existed please try again !';
         return;
       }
-      if (data.message === "noemail"){
-        this.status = "email existed please try again !";
+      if (data.message === 'noemail') {
+        this.status = 'email existed please try again !';
         return;
       }
-      if(data.message === "yes"){
-        this.status = "Create success !";
+      if (data.message === 'yes') {
+        this.status = 'Create success !';
+        this.router.navigate(['login']).then(() => {
+          location.reload();
+        });
         return;
       }
-    },error => {
-      console.log('error-------',error);
-      this.status = "Email invalid Please try again !";
+    }, error => {
+      console.log('error-------', error);
+      this.status = 'Email invalid Please try again !';
       return;
     });
   }

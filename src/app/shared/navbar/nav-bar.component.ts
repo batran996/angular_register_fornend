@@ -2,7 +2,7 @@ import {Component, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
-import {RouterModule} from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import {ThemePickerModule} from '../theme-picker';
 import {ThemeStorage} from '../theme-picker/theme-storage/theme-storage';
 import {StyleManager} from '../style-manager';
@@ -21,7 +21,8 @@ export class NavBarComponent {
   name: string;
   avatar: string;
 
-  constructor(private tokenService: TokenService) {
+  constructor(private tokenService: TokenService,
+              private router: Router) {
 
   }
 
@@ -32,6 +33,13 @@ export class NavBarComponent {
       this.avatar = this.tokenService.getAvatar();
 
     }
+  }
+
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['']).then(() => {
+      location.reload();
+    });
   }
 }
 

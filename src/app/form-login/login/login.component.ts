@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAvatar(data.avatar);
         // @ts-ignore
         this.tokenService.setRole(data.roles);
-        this.router.navigate(["profile"]).then(()=>{
+        this.router.navigate(["home"]).then(()=>{
           location.reload();
         });
       }

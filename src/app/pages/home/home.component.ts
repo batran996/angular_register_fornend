@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Track } from 'projects/ngx-audio-player/src/public_api';
 import { AudioPlayerComponent } from 'projects/ngx-audio-player/src/public_api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,8 @@ import { AudioPlayerComponent } from 'projects/ngx-audio-player/src/public_api';
 })
 export class HomeComponent {
 
-  constructor() { }
+
+  constructor(private router: Router) { }
   private fmaBaseUrl = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music';
 
   @ViewChild('player', { static: false })
@@ -181,4 +183,5 @@ export class HomeComponent {
     this.msaapDisablePositionSlider = event.checked;
   }
   // End: Required for demo purpose
+
 }

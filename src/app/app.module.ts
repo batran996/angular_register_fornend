@@ -29,11 +29,14 @@ import { LoginComponent } from './form-login/login/login.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Home' } },
+  { path: '', component: LoginComponent, data: { title: 'Home' } },
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
+  },
+  {
+    path:"home" , component:HomeComponent
   },
   {
     path:'register',component:RegisterComponent
