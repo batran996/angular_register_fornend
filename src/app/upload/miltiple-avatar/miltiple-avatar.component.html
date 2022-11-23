@@ -2,10 +2,18 @@
     <div class="row">
         <div class="col-12">
             <mat-card style="margin: 50px">
+                <mat-progress-bar *ngIf="check" mode="determinate" value="40"></mat-progress-bar>
                 <input type="file" (change)="uploadMultipleFile($event)" multiple>
                 <button *ngIf="arrUrlFormFilreBase.length?!selectFile:selectFile" (click)="upload()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload
                     <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
                 </button>
+                <div class="row">
+                    <div class="colum" *ngFor="let item of arrUrlFormFilreBase">
+                        <div class="card">
+                            <img src="{{item}}" alt="">
+                        </div>
+                    </div>
+                </div>
             </mat-card>
         </div>
     </div>

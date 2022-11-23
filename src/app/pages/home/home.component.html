@@ -97,8 +97,8 @@
           <ngx-audio-player #player (trackEnded)="onEnded($event)" [autoPlay]="false"
             [displayPlaylist]="msaapDisplayPlayList" [tableHeader]="msaapTableHeader" [titleHeader]="msaapTitleHeader"
             [artistHeader]="msaapArtistHeader" [durationHeader]="msaapDurationHeader" [displayTitle]="msaapDisplayTitle"
-            [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls" 
-            [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
+            [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
+            [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist"
             [displayDuration]="msaapDisplayDuration" [expanded]="true"
             [pageSizeOptions]="pageSizeOptions" [playlist]="msaapPlaylist">
           </ngx-audio-player>
@@ -118,7 +118,7 @@
 <h1>demo tryuyen du lieu</h1>
 <app-paren-input> </app-paren-input>`
 <h1>upload Singer Avatar</h1>
-<app-singer-avatar (urlformFirebase)="upLoadAvatar($event)" )></app-singer-avatar>
+<app-singer-avatar (urlformFirebase)="upLoadAvatar($event)"></app-singer-avatar>
 <h1>upload multilple nhieu file</h1>
 <app-miltiple-avatar (arrUrl)="onUploadMultiple($event)"></app-miltiple-avatar>
 

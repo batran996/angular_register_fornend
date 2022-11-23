@@ -1,8 +1,8 @@
 export class Changeravatar{
-  avatar : String;
+  avatar : string;
 
 
-  constructor(avatar: String) {
+  constructor(avatar: string) {
     this.avatar = avatar;
   }
 

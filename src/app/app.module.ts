@@ -42,6 +42,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MiltipleAvatarComponent } from './upload/miltiple-avatar/miltiple-avatar.component';
 import {AuthInterceptor} from './service/auth.interceptor';
 import { UpdateAvatarComponent } from './profile/update-avatar/update-avatar.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog/dialog.component';
 
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Home' } },
@@ -61,17 +64,18 @@ export const appRoutes: Routes = [
   },
   {
     path:'profile',component:ProfileComponent,
-    children:[
-      {path:'update/avatar',component:UpdateAvatarComponent}
-    ]}
+  children: [
+    {path:"update/avatar",component:UpdateAvatarComponent}
+  ]}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
     MatCardModule,
+    MatDialogModule,
     MatToolbarModule,
     MatIconModule,
     MatRadioModule,
@@ -84,7 +88,7 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatInputModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
   ],
   providers: [
     {

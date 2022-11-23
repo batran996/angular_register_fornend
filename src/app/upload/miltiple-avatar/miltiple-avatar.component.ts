@@ -26,11 +26,13 @@ export class MiltipleAvatarComponent implements OnInit {
     this.selectFile = $even.target.files;
   }
   upload(){
+    this.check = true;
     for (let i = 0; i < this.selectFile.length; i++) {
       this.arrFilesinFireBase = this.afServicee.ref(this.selectFile[i].name);
-      this.arrFilesinFireBase.put(this.selectFile).then(data =>{
+      this.arrFilesinFireBase.put(this.selectFile[i]).then(data =>{
         return data.ref.getDownloadURL();
       }).then(url=>{
+        this.check = false;
         this.arrUrlFormFilreBase.push(url);
         this.arrUrl.emit(this.arrUrlFormFilreBase);
       }).catch(error =>{
