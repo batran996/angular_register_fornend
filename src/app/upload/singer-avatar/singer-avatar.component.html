@@ -1,0 +1,17 @@
+<div class="container">
+     <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <input type="file" (change)="onChangerFile($event)">
+                <button *ngIf="urlFire?!selectFile:selectFile" (click)="uploadFile()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload
+                    <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                </button>
+                <mat-spinner *ngIf="checkkUpload"></mat-spinner>
+                <div *ngIf="urlFire">
+                    <img src="{{urlFire}}}" width="350px" height="350px">
+                </div>
+            </mat-card>
+
+        </div>
+     </div>
+</div>

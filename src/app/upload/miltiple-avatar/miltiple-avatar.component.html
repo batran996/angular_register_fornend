@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-card style="margin: 50px">
+                <input type="file" (change)="uploadMultipleFile($event)" multiple>
+                <button *ngIf="arrUrlFormFilreBase.length?!selectFile:selectFile" (click)="upload()" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Upload
+                    <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                </button>
+            </mat-card>
+        </div>
+    </div>
+</div>

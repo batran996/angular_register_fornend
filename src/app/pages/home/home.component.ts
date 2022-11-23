@@ -184,4 +184,11 @@ export class HomeComponent {
   }
   // End: Required for demo purpose
 
+  upLoadAvatar($event: string) {
+    console.log("avatar------->",$event);
+  }
+
+  onUploadMultiple($event: string[]) {
+    console.log("multilple------>",$event);
+  }
 }

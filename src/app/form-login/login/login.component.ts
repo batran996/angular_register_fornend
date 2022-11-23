@@ -22,6 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem("SUCCESS_KEY")!=null){
+      this.status = localStorage.getItem("SUCCESS_KEY");
+    }else {
+      this.status = "Please fill in the to login";
+    }
   }
 
   login() {
