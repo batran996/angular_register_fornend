@@ -45,6 +45,8 @@ import { UpdateAvatarComponent } from './profile/update-avatar/update-avatar.com
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog/dialog.component';
+import {AuthGuard} from './security/auth.guard';
+import { AdminManagerComponent } from './profile/admin-manager/admin-manager.component';
 
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Home' } },
@@ -63,14 +65,14 @@ export const appRoutes: Routes = [
     path:'login',component:LoginComponent
   },
   {
-    path:'profile',component:ProfileComponent,
+    path:'profile',component:ProfileComponent,canActivate: [AuthGuard],
   children: [
     {path:"update/avatar",component:UpdateAvatarComponent}
   ]}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
