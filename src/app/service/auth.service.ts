@@ -11,15 +11,16 @@ import {Changeravatar} from '../model/Changeravatar';
   providedIn: 'root'
 })
 export class AuthService {
-  //API local:
-  // private API_SIGNUP = environment.API_LOCAL + 'signup';
-  // private API_SIGNIN = environment.API_LOCAL + 'signin';
+  // API local:
+  private API_SIGNUP = environment.API_LOCAL + 'signup';
+  private API_SIGNIN = environment.API_LOCAL + 'signin';
 
 
   //API serve:
-  private API_SIGNUP = environment.API_SERVE + 'signup';
-  private API_SIGNIN = environment.API_SERVE + 'signin';
-  private API_UPDATE_AVATAR = environment.API_SERVE+"change/avatar";
+  // private API_SIGNUP = environment.API_SERVE + 'signup';
+  // private API_SIGNIN = environment.API_SERVE + 'signin';
+  private API_UPDATE_AVATAR = environment.API_LOCAL+"change/avatar";
+  // private API_UPDATE_AVATAR = environment.API_SERVE+"change/avatar";
 
 
   constructor(private http: HttpClient) {

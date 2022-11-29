@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+
+                <h1 style="color: #bd4147;text-align: center">Create Category</h1>
+                <form class="create-category" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput name="name" [(ngModel)]="form.name" #nameCate="ngModel" required>
+                        <mat-icon color="accent" matSuffix>category</mat-icon>
+                        <mat-error *ngIf="nameCate.hasError('required')">Name is required!</mat-error>
+
+
+                    </mat-form-field>
+                    <div style="color: red">{{error}}</div>
+
+                    <br>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-success">Create Category
+                        <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                </form>
+
+
+
+            </mat-card>
+        </div>
+    </div>
+</div>
+

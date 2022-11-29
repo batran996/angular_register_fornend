@@ -7,25 +7,25 @@
   <button matSuffix (click)="logOut()" mat-stroked-button color="red" class="mat-button-toggle-group btn-outline-danger">Logout
     <mat-icon color="primary" >logout</mat-icon>
   </button>
+  <button *ngIf="checkLogin" routerLink="categories" mat-stroked-button color="red" class="mat-button-toggle-group btn-outline-danger">Category
+<!--    <mat-icon color="primary" >logout</mat-icon>-->
+  </button>
   <a *ngIf="!checkLogin" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">
-
     <span>Register</span>
     <mat-icon color="accent" >login</mat-icon>
-
   </a>
   <a *ngIf="!checkLogin" mat-button class="docs-button" routerLink="login" aria-label="Angular Material">
-
     <span>Login</span>
-    <mat-icon color="accent" >login</mat-icon>
 
   </a>
-  <a *ngIf="!checkLogin" mat-button class="docs-button" routerLink="login" aria-label="Angular Material">
-    <span>{{name}}</span>
+<!--  <a  mat-button class="docs-button"  aria-label="Angular Material" > </a>-->
 
-  </a>
+
 
 
   <div class="flex-spacer"></div>
+  <span *ngIf="checkLogin" style="color: #faab00">Hello {{name}}
+    </span>
   <img routerLink="profile/update/avatar" *ngIf="checkLogin" style="width: 50px ; height: 50px;border-radius: 50%" src="{{avatar}}">
   <app-theme-picker></app-theme-picker>
   <a mat-button class="docs-button docs-navbar-hide-small" target="_blank" href="https://github.com/vmudigal/ngx-audio-player"

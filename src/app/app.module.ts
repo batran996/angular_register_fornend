@@ -47,6 +47,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog/dialog.component';
 import {AuthGuard} from './security/auth.guard';
 import { AdminManagerComponent } from './profile/admin-manager/admin-manager.component';
+import {AdminGuard} from './security/admin.guard';
+import { CategoryManagerComponent } from './category/category-manager/category-manager.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Home' } },
@@ -67,12 +72,22 @@ export const appRoutes: Routes = [
   {
     path:'profile',component:ProfileComponent,canActivate: [AuthGuard],
   children: [
-    {path:"update/avatar",component:UpdateAvatarComponent}
-  ]}
+    {path:"update/avatar",component:UpdateAvatarComponent},
+    {path:"admin",component:AdminManagerComponent, canActivate:[AdminGuard]}
+  ]},
+  {
+    path:"categories",component:CategoryManagerComponent,
+    children: [
+      {path:"create-category",component:CreateCategoryComponent}
+    ]
+  },
+  {
+    path:"create-category",component:CreateCategoryComponent
+  }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, CategoryManagerComponent, CreateCategoryComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -90,7 +105,7 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatInputModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatTableModule
   ],
   providers: [
     {
