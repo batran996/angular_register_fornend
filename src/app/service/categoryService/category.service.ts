@@ -20,4 +20,7 @@ private API_CATEGORYS = environment.API_LOCAL+"categories";
     return this.http.post<Category>(this.API_CATEGORYS,category)
   }
 
+  editCate(category:Category):Observable<any> {
+    return this.http.put<any>(this.API_CATEGORYS+"/"+category.id,category);
+  }
 }

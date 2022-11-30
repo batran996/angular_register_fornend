@@ -32,7 +32,8 @@ export class CreateCategoryComponent implements OnInit {
 
   ngSubmit() {
     this.category = new Category(
-      this.form.name
+      this.form.name,
+      this.form.id
     )
     this.categoryService.createCtegory(this.category).subscribe(data =>{
 

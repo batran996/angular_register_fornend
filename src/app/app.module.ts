@@ -52,6 +52,7 @@ import { CategoryManagerComponent } from './category/category-manager/category-m
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 
 export const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Home' } },
@@ -77,17 +78,18 @@ export const appRoutes: Routes = [
   ]},
   {
     path:"categories",component:CategoryManagerComponent,
-    children: [
-      {path:"create-category",component:CreateCategoryComponent}
-    ]
+
   },
   {
     path:"create-category",component:CreateCategoryComponent
+  },
+  {
+    path:"edit-category",component:EditCategoryComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, CategoryManagerComponent, CreateCategoryComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParenInputComponent, ChildInputComponent, OutputParenComponent, OutputChildComponent, SingerAvatarComponent, MiltipleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, CategoryManagerComponent, CreateCategoryComponent, EditCategoryComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
